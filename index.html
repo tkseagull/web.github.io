@@ -24,11 +24,8 @@
       // Build the DuckDuckGo search URL with the search query
       const searchUrl = `https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`;
 
-      // Replace the current history entry with the search results page
-      window.history.replaceState(null, '', searchUrl);
-
-      // Navigate to the search results page
-      window.location.replace(searchUrl);
+      // Open the search results in a new tab
+      window.open(searchUrl, '_blank');
     });
   </script>
 </body>
