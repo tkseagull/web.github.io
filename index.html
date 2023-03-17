@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DuckDuckGo Search</title>
+</head>
+<body>
+  <form action="https://duckduckgo.com/" method="get">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+
+  <script>
+    // Get the search form element
+    const searchForm = document.querySelector('form');
+
+    // Add an event listener to the form submit event
+    searchForm.addEventListener('submit', event => {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get the search query from the form input
+      const searchQuery = searchForm.querySelector('input[name="q"]').value;
+
+      // Build the DuckDuckGo search URL with the search query
+      const searchUrl = `https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`;
+
+      // Replace the current history entry with the search results page
+      window.history.replaceState(null, '', searchUrl);
+
+      // Navigate to the search results page
+      window.location.replace(searchUrl);
+    });
+  </script>
+</body>
+</html>
